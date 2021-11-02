@@ -85,8 +85,8 @@ function buildCharts(sample) {
     Plotly.newPlot("bar", barData, barLayout);
 })
 }
-
-   // Bar and Bubble charts
+console.log("***")
+// Bar and Bubble charts
 //Create the buildCharts function.
 function buildBubble(sample) {
   //Use d3.json to load and retrieve the samples.json file 
@@ -96,7 +96,7 @@ function buildBubble(sample) {
     var samples = data.samples;
     var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
-
+    
     var otu_ids = result.otu_ids;
     //console.log("***")
     //console.log(resultArray)
@@ -127,7 +127,7 @@ function buildBubble(sample) {
       xaxis: { title: "OTU ID" },
       margin: { t: 30 }  
     };
-
+    
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, bubbleLayout);
     var yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse();
